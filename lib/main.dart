@@ -1,4 +1,5 @@
 import 'package:countdown_timer/core/providers/countdown_provider.dart';
+import 'package:countdown_timer/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (buildContext) => CountdownProvider(),
-      child: MaterialApp(debugShowCheckedModeBanner: false, home: Scaffold()),
+      child: MaterialApp(
+        title: "Countdown Timer",
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.system,
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(),
+      ),
     );
   }
 }
