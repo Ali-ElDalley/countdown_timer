@@ -12,7 +12,7 @@ extension AppThemeContext on BuildContext {
   Color get surface => Theme.of(this).colorScheme.surface;
   Color get onSurface => Theme.of(this).colorScheme.onSurface;
   Color get background => Theme.of(this).scaffoldBackgroundColor;
-  Color get neutral => AppColors.neutral; // ثابت، مو جزء من ColorScheme
+  Color get neutral => AppColors.neutral; 
 
   TextStyle? get headline => Theme.of(this).textTheme.headlineLarge;
   TextStyle? get headlineMedium => Theme.of(this).textTheme.headlineMedium;

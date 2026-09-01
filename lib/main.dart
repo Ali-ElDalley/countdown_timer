@@ -1,5 +1,6 @@
 import 'package:countdown_timer/core/providers/countdown_provider.dart';
 import 'package:countdown_timer/core/theme/app_theme.dart';
+import 'package:countdown_timer/features/home/view/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,9 +20,9 @@ class MyApp extends StatelessWidget {
         title: "Countdown Timer",
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
-        home: Scaffold(),
+        home: HomeScreen(),
       ),
     );
   }
