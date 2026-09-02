@@ -24,7 +24,7 @@ class AppTheme {
     onSurface: Colors.white,
   );
 
-  static TextTheme _buildTextTheme(Color onSurfaceColor) {
+  static TextTheme _buildTextTheme(Color onSurfaceColor, Color primary) {
     return TextTheme(
       headlineLarge: AppTextStyles.headLine.copyWith(
         fontSize: 32,
@@ -44,10 +44,15 @@ class AppTheme {
       bodyMedium: AppTextStyles.body.copyWith(
         fontSize: 14,
         fontWeight: FontWeight.normal,
-        color: onSurfaceColor,
+        color: onSurfaceColor.withValues(alpha: 0.6),
       ),
       displayLarge: AppTextStyles.label.copyWith(
-        fontSize: 48,
+        fontSize: 44,
+        fontWeight: FontWeight.bold,
+        color: primary,
+      ),
+      displayMedium: AppTextStyles.label.copyWith(
+        fontSize: 40,
         fontWeight: FontWeight.bold,
         color: onSurfaceColor,
       ),
@@ -64,7 +69,7 @@ class AppTheme {
     brightness: Brightness.light,
     colorScheme: _lightColorScheme,
     scaffoldBackgroundColor: AppColors.backgroundLight,
-    textTheme: _buildTextTheme(AppColors.secondary),
+    textTheme: _buildTextTheme(AppColors.secondary, AppColors.primary),
     extensions: [AppIconExtension(themeToggleIcon: Icons.light_mode_outlined)],
   );
 
@@ -73,7 +78,7 @@ class AppTheme {
     brightness: Brightness.dark,
     colorScheme: _darkColorScheme,
     scaffoldBackgroundColor: AppColors.backgroundDark,
-    textTheme: _buildTextTheme(Colors.white),
+    textTheme: _buildTextTheme(Colors.white, AppColors.primary),
     extensions: [AppIconExtension(themeToggleIcon: Icons.dark_mode_outlined)],
   );
 }

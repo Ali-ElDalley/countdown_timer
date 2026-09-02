@@ -7,7 +7,7 @@ class HomeEmptyState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
+    return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -27,9 +27,7 @@ class HomeEmptyState extends StatelessWidget {
           Text(
             "Create your first timer to start\ntracking important upcoming\nevents.",
             textAlign: TextAlign.center,
-            style: context.bodyMedium?.copyWith(
-              color: context.onSurface.withValues(alpha: 0.4),
-            ),
+            style: context.bodyMedium,
           ),
           Spacer(flex: 2),
         ],

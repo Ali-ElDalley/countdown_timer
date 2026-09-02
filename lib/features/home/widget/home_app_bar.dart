@@ -18,6 +18,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: context.background,
       automaticallyImplyLeading: false,
       leadingWidth: 300,
       leading: Padding(
