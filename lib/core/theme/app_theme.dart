@@ -56,6 +56,11 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         color: onSurfaceColor,
       ),
+      labelMedium: AppTextStyles.label.copyWith(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: onSurfaceColor,
+      ),
       labelSmall: AppTextStyles.label.copyWith(
         fontSize: 12,
         fontWeight: FontWeight.w500,

@@ -21,4 +21,5 @@ extension AppThemeContext on BuildContext {
   TextStyle? get countdownNumbers => Theme.of(this).textTheme.displayMedium;
   TextStyle? get countdownDaysNumbers => Theme.of(this).textTheme.displayLarge;
   TextStyle? get label => Theme.of(this).textTheme.labelSmall;
+  TextStyle? get topic => Theme.of(this).textTheme.labelMedium;
 }
