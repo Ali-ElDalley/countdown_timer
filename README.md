@@ -31,22 +31,24 @@ This is my second Flutter portfolio project, built after a [To-Do List app](http
 - [ ] Live countdown display (`days:hours:minutes:seconds`)
 - [ ] Local notification when a countdown hits zero
 - [ ] Local persistence (Hive)
+- [ ] Linear progress indicator per countdown (Home list + Detail screen) — *decided, not yet implemented*
 - [x] Light / Dark mode (follows system theme)
 
 ## Progress so far
 
-- [x] `CountdownItem` model
+- [x] `CountdownItem` model (incl. uuid-based `id` + `createdAt` for future progress tracking)
 - [x] Full theming system (Light/Dark, custom colors & fonts)
 - [x] Home screen UI (empty state)
 - [x] Add/Edit Countdown screen UI (UI + some basic local logic — no state management or storage behind it yet)
 
 ## Roadmap
 
-- [ ] Build `CountdownProvider` (state management for the list of countdowns) — not started
+- [ ] Build `CountdownProvider` (state management for the list of countdowns) — currently in design discussion, not started
 - [ ] Build local persistence with Hive — not started
 - [ ] Connect Home + Add/Edit screens to the Provider once it exists
 - [ ] Live per-second countdown rendering (`Timer.periodic`)
 - [ ] Local notifications on zero (`flutter_local_notifications` + `timezone`, incl. `SCHEDULE_EXACT_ALARM` on Android 12+)
+- [ ] Linear progress bar per countdown, computed from `createdAt` → `targetDateTime` (Home + Detail)
 - [ ] Countdown Detail screen
 - [ ] Delete countdown
 - [ ] Final polish + screenshots
@@ -56,6 +58,7 @@ This is my second Flutter portfolio project, built after a [To-Do List app](http
 - **Flutter / Dart**
 - **Provider** — state management
 - **Hive** — local storage
+- **uuid** — unique id generation for `CountdownItem`
 - **flutter_local_notifications** + **timezone** — scheduled notifications
 - **google_fonts** — Hanken Grotesk (headings/body) + JetBrains Mono (numbers/labels)
 - Design prototyped in **Google Stitch**
@@ -64,8 +67,8 @@ This is my second Flutter portfolio project, built after a [To-Do List app](http
 
 Layered structure (models → providers → services → views/widgets), following the same pattern as the To-Do List project:
 
-- `CountdownItem` — data model *(done)*
-- `CountdownProvider` — list state management (ChangeNotifier) — *not started*
+- `CountdownItem` — data model *(done — includes `id` (uuid) and `createdAt` for progress calculation)*
+- `CountdownProvider` — list state management (ChangeNotifier) — *in design discussion, not started*
 - `StorageService` — the layer that would talk to Hive — *not started*
 - `AppColors` / `AppTextStyles` / `AppTheme` — centralized theming, accessed via `Theme.of(context)` *(done)*
 
