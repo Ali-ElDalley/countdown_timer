@@ -1,8 +1,11 @@
+import 'package:uuid/uuid.dart';
+
 class CountdownItem {
   final String id;
   final String title;
   final String? description;
   final DateTime targetDateTime;
+  final DateTime createdAt;
   final int notificationId;
   final bool isNotified;
   CountdownItem({
@@ -12,19 +15,21 @@ class CountdownItem {
     required this.targetDateTime,
     this.isNotified = false,
     required this.notificationId,
+    required this.createdAt,
   });
   factory CountdownItem.create({
     required String title,
     String? description,
     required DateTime targetDateTime,
   }) {
-    final String id = DateTime.fromMillisecondsSinceEpoch.toString();
+    final String id = const Uuid().v4();
     return CountdownItem(
       id: id,
       title: title,
       description: description,
       targetDateTime: targetDateTime,
       notificationId: id.hashCode & 0x7FFFFFFF,
+      createdAt: DateTime.now(),
     );
   }
 
@@ -41,7 +46,7 @@ class CountdownItem {
       targetDateTime: targetDateTime ?? this.targetDateTime,
 
       notificationId: notificationId,
-      isNotified: isNotified ?? this.isNotified,
+      isNotified: isNotified ?? this.isNotified, createdAt: createdAt,
     );
   }
 
@@ -50,6 +55,7 @@ class CountdownItem {
     'title': title,
     'description': description,
     'targetDateTime': targetDateTime.toIso8601String(),
+    'createdAt':createdAt.toIso8601String(),
     'notificationId': notificationId,
     'isNotified': isNotified,
   };
@@ -60,6 +66,7 @@ class CountdownItem {
       title: json['title'],
       description: json['description'],
       targetDateTime: DateTime.parse(json['targetDateTime']),
+      createdAt: DateTime.parse(json['createdAt']),
       notificationId: json['notificationId'],
       isNotified: json['isNotified'] ?? false,
     );
